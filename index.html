@@ -168,10 +168,17 @@
       transform: scale(1.2)
     }
 
-    /* altura padrão do card fechado */
+    /* Memory (fase 2) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto
+    }
+
     .card-tile {
-      height: 220px;
-      /* ajuste a gosto */
+      height: 300px;
       border-radius: 16px;
       display: grid;
       place-items: center;
@@ -179,28 +186,26 @@
       cursor: pointer;
       background: #202142;
       border: 1px solid rgba(255, 255, 255, .08);
-      transition: .25s transform, .25s background, .25s height;
-      /* anima a altura */
+      transition: .25s transform, .25s background;
       overflow: hidden;
+      height: 300px;
     }
 
-    /* quando revelar/achar o par: aumenta a altura */
-    .card-tile.revealed,
-    .card-tile.solved {
+    .card-tile.revealed {
       background: #2b2d57;
-      /* mantém seu estilo */
-      transform: scale(1.03);
-      height: 200px;
-      /* <- AQUI você controla a altura revelada */
+      transform: scale(1.03)
     }
 
-    /* a foto se adapta sem cortar quando estiver revelado */
-    .card-tile.revealed img,
-    .card-tile.solved img {
+    .card-tile.solved {
+      background: #1e3d34;
+      border-color: rgba(110, 243, 165, .65)
+    }
+
+    .card-tile img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      /* use 'cover' se preferir preencher cortando */
+      object-fit: cover;
+      display: block
     }
 
     /* Drag sentence (fase 3) */
@@ -572,7 +577,7 @@
       btn.style.position = 'fixed'; btn.style.left = x + 'px'; btn.style.top = y + 'px';
     }
 
-
+    
     // start
     viewIntro();
   </script>
