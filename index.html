@@ -177,6 +177,7 @@
       margin: 0 auto
     }
 
+    /* mantém as cartas sempre em pé */
     .card-tile {
       border-radius: 16px;
       display: grid;
@@ -188,27 +189,31 @@
       transition: .25s transform, .25s background;
       overflow: hidden;
 
-      /* mantém formato de carta em pé */
       aspect-ratio: 2 / 3;
-      /* 2:3 = vertical */
+      /* <- formato retrato */
       width: 100%;
     }
 
+    /* placeholder (❓) preenche a carta toda antes de revelar */
+    .card-tile>span {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    /* estado revelado: igual tamanho (sem scale) */
     .card-tile.revealed {
       background: #2b2d57;
-      transform: scale(0.83)
+      /* transform: scale(0.83);  <- REMOVA isso */
     }
 
-    .card-tile.solved {
-      background: #1e3d34;
-      border-color: rgba(110, 243, 165, .65)
-    }
-
+    /* imagem revelada já preenche a carta */
     .card-tile img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block
+      display: block;
     }
 
     /* Drag sentence (fase 3) */
@@ -280,20 +285,13 @@
     }
 
     @media (max-width: 520px) {
-      h2 {
-        font-size: 22px
-      }
-
       .grid {
         grid-template-columns: repeat(3, 1fr);
-        max-width: 360px;
-        /* opcional: limita a grade no centro */
       }
 
-      /* antes tinha .card-tile { height: 74px } — remova */
+      /* nada de height fixo aqui */
       .card-tile {
         aspect-ratio: 2 / 3;
-        /* reforça o formato vertical no mobile */
       }
     }
   </style>
