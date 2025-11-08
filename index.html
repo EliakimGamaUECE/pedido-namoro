@@ -289,15 +289,7 @@
         height: 74px
       }
     }
-
-    @media (max-width: 520px){
-  .grid{
-    grid-template-columns: repeat(2, minmax(44vw, 1fr)); /* cartas ~44% da tela */
-    gap: 16px;
-  }
-  .card-tile{ aspect-ratio: 3/4; }
-  .card-tile img{ object-fit: contain; }
-}
+    
   </style>
 </head>
 
@@ -586,7 +578,7 @@
       btn.style.position = 'fixed'; btn.style.left = x + 'px'; btn.style.top = y + 'px';
     }
 
-
+    
     // start
     viewIntro();
   </script>
