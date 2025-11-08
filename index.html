@@ -291,20 +291,21 @@
     }
 
     @media (max-width: 520px) {
-
-      .card-tile {
-        aspect-ratio: 6 / 8;
+      .grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        /* antes eram 3 colunas menores */
+        gap: 14px;
       }
 
-      .card-tile.revealed,
-      .card-tile.solved {
-        aspect-ratio: 6 / 8;
+      .card-tile {
+        aspect-ratio: 3 / 4;
+        /* em pé */
       }
 
       .card-tile img {
         object-fit: contain;
+        /* mostra a foto inteira */
       }
-
     }
   </style>
 </head>
